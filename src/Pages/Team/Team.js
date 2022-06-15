@@ -19,7 +19,7 @@ function Team() {
   return (
     <>
       <div class="career-parallax">
-        <div class="parallax__career parallax__career__layer--back">
+        <div class="parallax__career parallax__career__layer--back parallax__Team">
           <TopContainer TopContent={TopContent} />
         </div>
 

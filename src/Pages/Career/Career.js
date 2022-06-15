@@ -31,7 +31,7 @@ function Career() {
         setJob={setJob}
       />
       <div class="career-parallax">
-        <div class="parallax__career parallax__career__layer--back ">
+        <div class="parallax__career parallax__career__layer--back parallax__career_special">
           <TopContainer TopContent={TopContent} />
         </div>
 

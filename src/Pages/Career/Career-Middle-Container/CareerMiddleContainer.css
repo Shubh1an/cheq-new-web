@@ -184,6 +184,17 @@
     padding: 0;
   }
 }
+@media only screen and (max-height: 707px) {
+  .team-profile h2 {
+    margin-bottom: 15px;
+  }
+  .parallax__career_special {
+    position: absolute;
+    top: 2% !important ;
+    right: 0;
+    left: 0;
+  }
+}
 /* @media only screen and (max-height: 640px) {
   .value-card {
     max-height: 16rem;

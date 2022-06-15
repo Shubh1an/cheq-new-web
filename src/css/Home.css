@@ -27,7 +27,7 @@
 }
 .parallax__layer-home {
   position: absolute;
-  top: -7%;
+  top: -12%;
   right: 0;
   left: 0;
 }
@@ -445,6 +445,27 @@
   }
   .home-middle-container-1 {
     padding: 8rem 3rem;
+  }
+}
+@media only screen and (max-height: 850px) {
+  .top-content h2 {
+    margin-bottom: 20px;
+  }
+}
+@media only screen and (max-height: 812px) {
+  .parallax__layer-home {
+    top: 5%;
+  }
+  .Mobile-image-container {
+    top: 23.1%;
+  }
+}
+@media only screen and (max-height: 550px) {
+  .parallax__layer-home {
+    top: 14%;
+  }
+  .Mobile-image-container {
+    top: 24.1%;
   }
 }
 @media only screen and (max-width: 850px) {
