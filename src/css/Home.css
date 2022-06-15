@@ -12,6 +12,7 @@
 }
 .top-content h2 {
   max-width: 39.438rem;
+  margin-top: 30px;
 }
 .top-content p {
   max-width: 40.563rem;
@@ -43,7 +44,7 @@
 }
 .parallax__layer-home-1 {
   position: absolute;
-  top: 67.688rem;
+  top: 63.688rem;
   right: 0;
   left: 0;
 }
@@ -159,7 +160,7 @@
   position: absolute;
   left: 0;
   right: 0;
-  top: 27.1%;
+  top: 20.1%;
 }
 .Mobile-box {
   display: flex;
@@ -413,7 +414,7 @@
     /* flex-direction: column; */
     transition: all ease-in-out 300ms;
 
-    padding: 1rem;
+    padding: 8rem 1rem;
   }
   .home-middle-container-1,
   .home-middle-container,

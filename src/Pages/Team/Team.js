@@ -11,9 +11,9 @@ function Team() {
   const TopContent = {
     heading: "Meet the founders & Team",
     subText:
-      "Credit Cards, Buy Now Pay Later and Loans in a quick and rewarding",
+      "Credit Cards, Buy Now Pay Later and Loans in a quick and rewarding way",
     cardImg: <FanImage />,
-    classname: "",
+    classname: "team-profile",
   };
 
   return (

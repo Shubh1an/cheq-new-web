@@ -7,6 +7,10 @@
   top: 74% !important;
 }
 
+.team-profile h2 {
+  margin-bottom: 35px;
+  max-width: 39.313rem;
+}
 .team-container,
 .profileContainer {
   padding: 5rem;

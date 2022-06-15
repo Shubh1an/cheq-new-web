@@ -34,6 +34,7 @@ function Home() {
   function dir() {
     let content = document.querySelector(".parallax-home");
     const position = content.scrollTop;
+
     // let opa = (opacity / position) * 20;
     let right = rotateRight + position / 59.8;
     let left = rotateLeft - position / 53.5;

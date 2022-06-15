@@ -13,21 +13,22 @@ function Header() {
   let ContactUs = null;
   const navigate = useNavigate();
   useEffect(() => {
-    Home = document.getElementsByClassName("parallax__layer")[0];
+    Home = document.querySelector(".parallax-home");
 
-    Team = document.getElementsByClassName("people-container")[0];
+    Team = document.querySelector(".people-container");
 
     Investors = document.getElementsByClassName("top-main-content")[0];
 
     // ContactUs = document.getElementsByClassName("top-main-content")[0];
   }, []);
   function doScrolling(elementY, duration = 500) {
-    let startingY = window.scrollY;
+    let startingY = Home.scrollTop;
+    console.log("startingY", startingY);
     let diff = elementY;
     let start;
 
     if (diff == 0) {
-      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+      Home.scrollTo({ top: 0, left: 0, behavior: "smooth" });
     }
 
     // Bootstrap our animation - it will get called right before next frame shall be rendered.
