@@ -495,19 +495,25 @@
   .middle-container,
   .job-container,
   .cheq-container {
-    padding: 3rem 5rem;
+    padding: 3rem;
   }
   /* {
     padding: 6rem 5rem;
   } */
   .flex-container {
-    justify-content: center;
+    justify-content: flex-start;
     /* gap: 1rem; */
   }
 }
 /* @media only screen and (max-width: 1256px) {
  
 } */
+@media only screen and (max-width: 1368px) {
+  .value-card {
+    max-width: 16.382rem;
+  }
+}
+
 @media only screen and (max-width: 1147px) {
   .cheq-content {
     flex-direction: column-reverse;
