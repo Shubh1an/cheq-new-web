@@ -17,34 +17,7 @@ import {
   RightMobile,
 } from "../../assets/icons/Icon-container";
 import { useNavigate } from "react-router-dom";
-const FadeInSection = ({ children }) => {
-  const domRef = React.useRef();
 
-  const [isVisible, setVisible] = React.useState(false);
-
-  React.useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      // In your case there's only one element to observe:
-      if (entries[0].isIntersecting) {
-        // Not possible to set it back to false like this:
-        setVisible(true);
-
-        // No need to keep observing:
-        observer.unobserve(domRef.current);
-      }
-    });
-
-    observer.observe(domRef.current);
-
-    return () => observer.unobserve(domRef.current);
-  }, []);
-
-  return (
-    <section ref={domRef} className={isVisible ? " is-visible" : ""}>
-      {children}
-    </section>
-  );
-};
 function Home() {
   const [rotateRight, setRotateRight] = useState(320);
   const [rotateLeft, setRotateLeft] = useState(42);
@@ -177,38 +150,36 @@ function Home() {
           <div className="parallax__layer-home-1 parallax__layer-home-base">
             {/* <Fade bottom> */}
 
-            <FadeInSection>
-              <Container inner="people-container">
-                <div className="top-home-container">
-                  <h3 className="head-title">Our People</h3>
-                  <p>
-                    We’re excited to announce that CheQ has raised in seed
-                    funding from ABC
-                  </p>
-                </div>
-                <div className="people-bottom-container">
-                  <div className="flex-left left-style">
-                    <div className="side-container">
-                      <h3 className="head-title">Our People</h3>
-                      <p>
-                        We’re excited to announce that CheQ has raised in seed
-                        funding from ABC
-                      </p>
-                    </div>
-                    <Button
-                      handleFunction={() => handleNavigate("team")}
-                      bttnClass="people-btn"
-                    >
-                      See All
-                    </Button>
+            <Container inner="people-container">
+              <div className="top-home-container">
+                <h3 className="head-title">Our People</h3>
+                <p>
+                  We’re excited to announce that CheQ has raised in seed funding
+                  from ABC
+                </p>
+              </div>
+              <div className="people-bottom-container">
+                <div className="flex-left left-style">
+                  <div className="side-container">
+                    <h3 className="head-title">Our People</h3>
+                    <p>
+                      We’re excited to announce that CheQ has raised in seed
+                      funding from ABC
+                    </p>
                   </div>
-                  <div className="flex-right right-style">
-                    <Slider1 />
-                  </div>
+                  <Button
+                    handleFunction={() => handleNavigate("team")}
+                    bttnClass="people-btn"
+                  >
+                    See All
+                  </Button>
                 </div>
-                <div className="background-blur"></div>
-              </Container>
-            </FadeInSection>
+                <div className="flex-right right-style">
+                  <Slider1 />
+                </div>
+              </div>
+              <div className="background-blur"></div>
+            </Container>
 
             {/* </Fade> */}
             <Container inner="home-middle-container">
