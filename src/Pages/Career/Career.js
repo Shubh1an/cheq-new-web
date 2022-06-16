@@ -30,7 +30,7 @@ function Career() {
         setIsOpen={setIsOpen}
         setJob={setJob}
       />
-      <div class="career-parallax">
+      <div class="career-parallax scrollClass">
         <div class="parallax__career parallax__career__layer--back parallax__career_special">
           <TopContainer TopContent={TopContent} />
         </div>

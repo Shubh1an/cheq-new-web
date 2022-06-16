@@ -7,23 +7,63 @@ import "./Header.css";
 import { CheqLogo } from "../../assets/icons/Icon-container";
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  let Home = null;
-  let Team = null;
-  let Investors = null;
-  let ContactUs = null;
+  let Home = document.querySelector(".scrollClass");
+  let Team = document.querySelector(".people-container");
+  let Investors = document.querySelector(".home-middle-container");
+  let ContactUs = document.querySelector(".job-card");
+  let Career = document.querySelector(".top-main-content");
   const navigate = useNavigate();
+  const [scroll, setScroll] = useState("home");
+  const [first, setfirst] = useState();
   useEffect(() => {
-    Home = document.querySelector(".parallax-home");
-
     Team = document.querySelector(".people-container");
+    ContactUs = document.querySelector(".job-card");
+    Career = document.querySelector(".top-main-content");
+    Investors = document.querySelector(".home-middle-container");
+    Home = document.querySelector(".scrollClass");
+    if (scroll == "career") {
+      setTimeout(() => {
+        let url =
+          window.location.href.split("/")[
+            window.location.href.split("/").length - 1
+          ];
+        if (url === "career") {
+          console.log("sdssss", ContactUs.getBoundingClientRect().top);
 
-    Investors = document.getElementsByClassName("top-main-content")[0];
+          doScrolling(ContactUs.getBoundingClientRect().top);
+        }
+      }, 500);
+    }
 
-    // ContactUs = document.getElementsByClassName("top-main-content")[0];
-  }, []);
+    // if (scroll == "Team") {
+    setTimeout(() => {
+      let url =
+        window.location.href.split("/")[
+          window.location.href.split("/").length - 1
+        ];
+      console.log(window.location.href.split("/"));
+      if (url === "") {
+        if (scroll == "Home") {
+          doScrolling(Home.getBoundingClientRect().top);
+        }
+        if (scroll == "Team") {
+          doScrolling(Team.getBoundingClientRect().top);
+        }
+        if (scroll == "Investors") {
+          doScrolling(Investors.getBoundingClientRect().top);
+        }
+        if (scroll == "Career") {
+          doScrolling(Career.getBoundingClientRect().top);
+        }
+      }
+    }, 500);
+    // }
+    setScroll("home");
+  }, [scroll]);
   function doScrolling(elementY, duration = 500) {
+    console.log("Home.scrollTop", Home.scrollTop);
     let startingY = Home.scrollTop;
-    console.log("startingY", startingY);
+    console.log("startingY", startingY, elementY);
     let diff = elementY;
     let start;
 
@@ -41,7 +81,7 @@ function Header() {
         // Get percent of completion in range [0, 1].
         let percent = Math.min(time / duration, 1);
 
-        window.scrollTo(0, startingY + diff * percent);
+        Home.scrollTo(0, startingY + diff * percent);
 
         // Proceed with animation as long as we wanted it to.
         if (time < duration) {
@@ -50,6 +90,20 @@ function Header() {
       });
     }
   }
+
+  const JoinUs = (page) => {
+    // ContactUs = document.querySelector(".job-card");
+
+    if (page == "career") {
+      navigate(page);
+      setScroll(page);
+    } else {
+      navigate("/");
+
+      setScroll(page);
+    }
+  };
+
   return (
     <div className="header-container">
       <div className="header-main">
@@ -65,8 +119,8 @@ function Header() {
           <div className="drawer-top">
             <div
               onClick={() => {
-                navigate("/");
-                doScrolling(Home.getBoundingClientRect().top);
+                JoinUs("Home");
+
                 setIsOpen(false);
               }}
             >
@@ -74,7 +128,8 @@ function Header() {
             </div>
             <div
               onClick={() => {
-                doScrolling(Team.getBoundingClientRect().top);
+                JoinUs("Team");
+
                 setIsOpen(false);
               }}
             >
@@ -82,7 +137,8 @@ function Header() {
             </div>
             <div
               onClick={() => {
-                doScrolling(Investors.getBoundingClientRect().top);
+                JoinUs("Investors");
+
                 setIsOpen(false);
               }}
             >
@@ -90,7 +146,8 @@ function Header() {
             </div>
             <div
               onClick={() => {
-                doScrolling(ContactUs.getBoundingClientRect().top);
+                JoinUs("Career");
+
                 setIsOpen(false);
               }}
             >
@@ -99,7 +156,14 @@ function Header() {
           </div>
           <div className="drawer-bottom"></div>
         </div>
-        <Button bttnClass="join-btn">Join Us</Button>
+        <Button
+          bttnClass="join-btn"
+          handleFunction={() => {
+            JoinUs("career");
+          }}
+        >
+          Join Us
+        </Button>
         {/* </div> */}
       </div>
     </div>

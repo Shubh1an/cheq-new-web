@@ -21,6 +21,8 @@ import { useNavigate } from "react-router-dom";
 function Home() {
   const [rotateRight, setRotateRight] = useState(320);
   const [rotateLeft, setRotateLeft] = useState(42);
+  const [rotateRightDegree, setRotateRightDegree] = useState(320);
+  const [rotateLeftDegree, setRotateLeftDegree] = useState(42);
   const [opacity, setOpacity] = useState(1);
   const TopContent = {
     heading: "Track and pay bills of all your Debt",
@@ -49,31 +51,31 @@ function Home() {
       if (position > 0) {
         // setOpacity(opa);
         if (322 < right && right < 366) {
-          console.log("righttt", right);
-          setRotateRight(360);
+          // console.log("righttt", right);
+          setRotateRightDegree(360);
         } else {
         }
         if (-10 < left && left < 42) {
-          setRotateLeft(0);
+          setRotateLeftDegree(0);
         }
       }
     } else {
       //scroll up
-      if (position > 1) {
-        // setOpacity(opa * 10);
+      // if (position > 1) {
+      // setOpacity(opa * 10);
 
-        if (!319 < right && right < 366) {
-          console.log("hello");
-          setRotateRight(320);
-        }
-        console.log("scroll-left", left);
-        if (left >= -20 && left < 42) {
-          // console.log("scroll-left-again", left);
-          // console.log("rotate left", !0 < left && left < 45);
-          setRotateLeft(42);
-          console.log("hello done");
-        }
+      if (!319 < right && right < 366) {
+        // console.log("hello");
+        setRotateRightDegree(320);
       }
+
+      if (!0 < left && left <= 42) {
+        // console.log("scroll-left-again", left);
+        // console.log("rotate left", !0 < left && left < 45);
+        setRotateLeftDegree(42);
+        // console.log("hello done");
+      }
+      // }
     }
     lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
   }
@@ -96,7 +98,10 @@ function Home() {
   //hello
   return (
     <>
-      <div onScroll={() => handleScroll()} className="parallax-home">
+      <div
+        onScroll={() => handleScroll()}
+        className="parallax-home scrollClass"
+      >
         <div class="parallax__layer-home parallax__layer-home-back">
           <Container
             inner={`commonClass ${
@@ -113,7 +118,7 @@ function Home() {
             <div className="Mobile-box">
               <div
                 style={{
-                  transform: `rotate(${rotateRight}deg)`,
+                  transform: `rotate(${rotateRightDegree}deg)`,
                   // transition: "5s ease-in",
                 }}
                 className={`left-mobile-pic`}
@@ -122,7 +127,7 @@ function Home() {
               </div>
               <div
                 style={{
-                  transform: `rotate(${rotateLeft}deg)`,
+                  transform: `rotate(${rotateLeftDegree}deg)`,
                 }}
                 className={`right-mobile-pic `}
               >
