@@ -24,6 +24,7 @@ function Home() {
   const [rotateRightDegree, setRotateRightDegree] = useState(320);
   const [rotateLeftDegree, setRotateLeftDegree] = useState(42);
   const [opacity, setOpacity] = useState(1);
+
   const TopContent = {
     heading: "Track and pay bills of all your Debt",
     subText:
@@ -32,24 +33,32 @@ function Home() {
     classname: "top-content",
   };
   let lastScrollTop = 0;
-
+  const checkpoint = 300;
   function dir() {
     let content = document.querySelector(".parallax-home");
     const position = content.scrollTop;
 
-    // let opa = (opacity / position) * 20;
+    let opa = opacity / (position / 100.8);
     let right = rotateRight + position / 59.8;
     let left = rotateLeft - position / 53.5;
     console.log("position", position);
     console.log("right", right);
     console.log("left", left);
+    console.log("opacity", opa);
+    if (position <= checkpoint) {
+      opa = 1 - position / checkpoint;
+      setOpacity(opa);
+    } else {
+      opa = 1;
+      setOpacity(opa);
+    }
     // or window.addEventListener("scroll"....
     let st = window.scrollY || position; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
     if (st > lastScrollTop) {
       // downscroll code
 
       if (position > 0) {
-        // setOpacity(opa);
+        // setOpacity(1 - opa);
         if (322 < right && right < 366) {
           // console.log("righttt", right);
           setRotateRightDegree(360);
@@ -62,8 +71,8 @@ function Home() {
     } else {
       //scroll up
       // if (position > 1) {
-      // setOpacity(opa * 10);
-
+      //   setOpacity(opa * 10);
+      // }
       if (!319 < right && right < 366) {
         // console.log("hello");
         setRotateRightDegree(320);
@@ -84,13 +93,13 @@ function Home() {
     dir();
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    console.log(window.scrollY);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  //   console.log(window.scrollY);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
   const navigate = useNavigate();
   const handleNavigate = (page) => {
     navigate(page);
@@ -99,7 +108,7 @@ function Home() {
   return (
     <>
       <div
-        onScroll={() => handleScroll()}
+        // onScroll={() => handleScroll()}
         className="parallax-home scrollClass"
       >
         <div class="parallax__layer-home parallax__layer-home-back">
@@ -123,7 +132,7 @@ function Home() {
                 }}
                 className={`left-mobile-pic`}
               >
-                <LeftMobile leftClass="side-mobile" />
+                <LeftMobile />
               </div>
               <div
                 style={{
@@ -131,10 +140,10 @@ function Home() {
                 }}
                 className={`right-mobile-pic `}
               >
-                <RightMobile rightClass="side-mobile" />
+                <RightMobile />
               </div>
               <div className="middle-mobile-pic">
-                <MiddleMobile middleClass="middle-mobile" />
+                <MiddleMobile />
               </div>
             </div>
           </div>

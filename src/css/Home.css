@@ -27,7 +27,7 @@
 }
 .parallax__layer-home {
   position: absolute;
-  top: -12%;
+  top: -18%;
   right: 0;
   left: 0;
 }
@@ -98,10 +98,17 @@
   transform: translateZ(-1px) scale(1);
 }
 .side-mobile {
-  width: 60%;
+  max-width: 326.42px;
+  max-height: 664px;
+  width: 326.42px;
+  height: 664px;
 }
+
 .middle-mobile {
-  width: 75%;
+  max-width: 395px;
+  max-height: 788px;
+  width: 395px;
+  height: 788px;
 }
 .people-container {
   margin: 0;
@@ -171,16 +178,16 @@
 .Mobile-box .left-mobile-pic,
 .right-mobile-pic,
 .middle-mobile-pic {
-  width: 100%;
-  height: 100%;
+  width: 70%;
+  height: 70%;
   position: absolute;
-  top: 15%;
+  top: 8%;
 }
 .left-mobile-pic {
   transform: rotate(320deg);
-  left: -10%;
+  left: -12%;
   transition: all ease-in-out 700ms;
-  transform-origin: 49% 140%;
+  transform-origin: 49% 149%;
 }
 .rotate-right {
   transform: rotate(360deg);
@@ -190,12 +197,12 @@
 }
 .right-mobile-pic {
   transform: rotate(42deg);
-  left: 0%;
   transition: all ease-in-out 700ms;
-  transform-origin: 55% 143%;
+  left: 24%;
+  transform-origin: 53% 165%;
 }
 .middle-mobile-pic {
-  right: 2%;
+  right: 19%;
 }
 .blessed-title {
   max-width: 26rem;
@@ -404,12 +411,33 @@
   .people-btn {
     /* max-width: 20.438rem !important; */
   }
-  .middle-mobile {
-    width: 75%;
+  /* .left-mobile-pic,
+  .right-mobile-pic,
+  .middle-mobile-pic {
+    top: 49% !important;
+  } */
+  /* .middle-mobile {
+    width: 99%;
+    height: 99%;
+  } */
+  .left-mobile-pic {
+    left: 22%;
+    width: 60% !important ;
+    transform-origin: 54% 181%;
   }
-  .side-mobile {
+  .right-mobile-pic {
+    left: 0%;
     width: 60%;
+    transform-origin: 54% 185%;
   }
+  .middle-mobile-pic {
+    width: 60%;
+    right: 26% !important;
+  }
+  /* .side-mobile {
+    width: 99%;
+    height: 99%;
+  }  */
   .top-main-content {
     /* flex-direction: column; */
     transition: all ease-in-out 300ms;
@@ -445,6 +473,16 @@
   }
   .home-middle-container-1 {
     padding: 8rem 3rem;
+  }
+}
+@media only screen and (max-height: 970px) {
+  .left-mobile-pic,
+  .right-mobile-pic,
+  .middle-mobile-pic {
+    top: 19% !important;
+  }
+  .parallax__layer-home {
+    top: -11%;
   }
 }
 @media only screen and (max-height: 850px) {

@@ -214,8 +214,8 @@ export const LeftMobile = ({ leftClass }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="334"
-      height="665"
+      // width="334"
+      // height="665"
       viewBox="0 0 334 665"
       fill="none"
       className={leftClass && leftClass}
@@ -373,8 +373,8 @@ export const RightMobile = ({ rightClass }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="334"
-      height="664"
+      // width="334"
+      // height="664"
       viewBox="0 0 334 664"
       fill="none"
       className={rightClass && rightClass}
@@ -498,8 +498,8 @@ export const MiddleMobile = ({ middleClass }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      width="395"
-      height="788"
+      // width="395"
+      // height="788"
       viewBox="0 0 395 788"
       fill="none"
       className={middleClass && middleClass}
