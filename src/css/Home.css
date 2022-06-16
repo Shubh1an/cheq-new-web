@@ -185,9 +185,9 @@
 }
 .left-mobile-pic {
   transform: rotate(320deg);
-  left: -12%;
+  left: 8%;
   transition: all ease-in-out 700ms;
-  transform-origin: 49% 149%;
+  transform-origin: 42% 188%;
 }
 .rotate-right {
   transform: rotate(360deg);
@@ -198,8 +198,8 @@
 .right-mobile-pic {
   transform: rotate(42deg);
   transition: all ease-in-out 700ms;
-  left: 24%;
-  transform-origin: 53% 165%;
+  left: 14%;
+  transform-origin: 61% 190%;
 }
 .middle-mobile-pic {
   right: 19%;
@@ -421,12 +421,13 @@
     height: 99%;
   } */
   .left-mobile-pic {
-    left: 22%;
+    left: 16%;
+
     width: 60% !important ;
     transform-origin: 54% 181%;
   }
   .right-mobile-pic {
-    left: 0%;
+    left: 12%;
     width: 60%;
     transform-origin: 54% 185%;
   }

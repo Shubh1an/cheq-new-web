@@ -33,7 +33,7 @@ function Home() {
     classname: "top-content",
   };
   let lastScrollTop = 0;
-  const checkpoint = 300;
+  const checkpoint = 500;
   function dir() {
     let content = document.querySelector(".parallax-home");
     const position = content.scrollTop;
@@ -108,7 +108,7 @@ function Home() {
   return (
     <>
       <div
-        // onScroll={() => handleScroll()}
+        onScroll={() => handleScroll()}
         className="parallax-home scrollClass"
       >
         <div class="parallax__layer-home parallax__layer-home-back">
