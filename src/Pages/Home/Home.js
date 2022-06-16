@@ -24,7 +24,35 @@ function Home() {
   const [rotateRightDegree, setRotateRightDegree] = useState(320);
   const [rotateLeftDegree, setRotateLeftDegree] = useState(42);
   const [opacity, setOpacity] = useState(1);
+  const domRef = React.useRef();
+  const FadeInSection = ({ children }) => {
+    const domRef = React.useRef();
 
+    const [isVisible, setVisible] = React.useState(false);
+
+    React.useEffect(() => {
+      const observer = new IntersectionObserver((entries) => {
+        // In your case there's only one element to observe:
+        if (entries[0].isIntersecting) {
+          // Not possible to set it back to false like this:
+          setVisible(true);
+
+          // No need to keep observing:
+          // observer.unobserve(domRef.current);
+        }
+      });
+
+      observer.observe(domRef.current);
+
+      // return () => observer.unobserve(domRef.current);
+    }, []);
+
+    return (
+      <section ref={domRef} className={isVisible ? " is-visible" : ""}>
+        {children}
+      </section>
+    );
+  };
   const TopContent = {
     heading: "Track and pay bills of all your Debt",
     subText:
@@ -159,82 +187,99 @@ function Home() {
                 </p>
               </div>
               <div className="people-bottom-container">
-                <div className="flex-left left-style">
-                  <div className="side-container">
-                    <h3 className="head-title">Our People</h3>
-                    <p>
-                      We’re excited to announce that CheQ has raised in seed
-                      funding from ABC
-                    </p>
+                <FadeInSection>
+                  <div className="flex-left left-style">
+                    <div className="side-container">
+                      <h3 className="head-title">Our People</h3>
+                      <p>
+                        We’re excited to announce that CheQ has raised in seed
+                        funding from ABC
+                      </p>
+                    </div>
+                    <Button
+                      handleFunction={() => handleNavigate("team")}
+                      bttnClass="people-btn"
+                    >
+                      See All
+                    </Button>
                   </div>
-                  <Button
-                    handleFunction={() => handleNavigate("team")}
-                    bttnClass="people-btn"
-                  >
-                    See All
-                  </Button>
-                </div>
-                <div className="flex-right right-style">
-                  <Slider1 />
-                </div>
+                </FadeInSection>
+                <FadeInSection>
+                  <div className="flex-right right-style">
+                    <Slider1 />
+                  </div>
+                </FadeInSection>
               </div>
+
               <div className="background-blur"></div>
             </Container>
 
             {/* </Fade> */}
             <Container inner="home-middle-container">
-              <div className="flex-left blessed-left-flex">
-                <h3 className="blessed-title head-title">
-                  Blessed & Backed by
-                </h3>
-                <p className="blessed-text-content">
-                  <span className="party-icon">
-                    <img src={SVG.PARTY_ICON} />
-                  </span>
-                  <span>
-                    We’re excited to announce that CheQ has raised{" "}
-                    <span className="bold">$34</span> in seed funding from ABC
-                  </span>
-                </p>
-              </div>
-              <div className="flex-right boxes-container">
-                <div className="square-box"></div>
-                <div className="square-box"></div>
-                <div className="square-box"></div>
-                <div className="square-box"></div>
-              </div>
+              <FadeInSection>
+                <div className="flex-left blessed-left-flex">
+                  <h3 className="blessed-title head-title">
+                    Blessed & Backed by
+                  </h3>
+                  <p className="blessed-text-content">
+                    <span className="party-icon">
+                      <img src={SVG.PARTY_ICON} />
+                    </span>
+                    <span>
+                      We’re excited to announce that CheQ has raised{" "}
+                      <span className="bold">$34</span> in seed funding from ABC
+                    </span>
+                  </p>
+                </div>
+              </FadeInSection>
+              <FadeInSection>
+                <div className="flex-right boxes-container">
+                  <div className="square-box"></div>
+                  <div className="square-box"></div>
+                  <div className="square-box"></div>
+                  <div className="square-box"></div>
+                </div>
+              </FadeInSection>
             </Container>
             <Container inner="home-middle-container-1">
-              <h3 className="news-title">In News</h3>
-              <Slider sliderInner="news-icon-container">
-                {NewsData.map((newsIcon, index) => (
-                  <img key={index} src={newsIcon.img} className="news-icon" />
-                ))}
-              </Slider>
+              <FadeInSection>
+                <h3 className="news-title">In News</h3>
+              </FadeInSection>
+              <FadeInSection>
+                <Slider sliderInner="news-icon-container">
+                  {NewsData.map((newsIcon, index) => (
+                    <img key={index} src={newsIcon.img} className="news-icon" />
+                  ))}
+                </Slider>
+              </FadeInSection>
             </Container>
             <div className="top-main-content">
-              <div className="left-content">
-                <h2>Join us on this Journey</h2>
-                <p>
-                  We’re excited to announce that CheQ has raised in seed funding
-                  from ABC
-                </p>
+              <FadeInSection>
+                <div className="left-content">
+                  <h2>Join us on this Journey</h2>
+                  <p>
+                    We’re excited to announce that CheQ has raised in seed
+                    funding from ABC
+                  </p>
+                  <Button
+                    handleFunction={() => handleNavigate("career")}
+                    bttnClass="people-btn-top"
+                  >
+                    Explore Opportunity
+                  </Button>
+                </div>
+              </FadeInSection>
+              <FadeInSection>
+                <div className="right-content">
+                  <MultiTaskingImage MultiTaskClass="multi-task-image" />
+                </div>
                 <Button
                   handleFunction={() => handleNavigate("career")}
-                  bttnClass="people-btn-top"
+                  bttnClass="people-btn-below"
                 >
                   Explore Opportunity
                 </Button>
-              </div>
-              <div className="right-content">
-                <MultiTaskingImage MultiTaskClass="multi-task-image" />
-              </div>
-              <Button
-                handleFunction={() => handleNavigate("career")}
-                bttnClass="people-btn-below"
-              >
-                Explore Opportunity
-              </Button>
+              </FadeInSection>
             </div>
             <Footer />
           </div>

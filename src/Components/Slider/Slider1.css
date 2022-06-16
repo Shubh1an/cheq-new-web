@@ -5,7 +5,25 @@
   flex-direction: column;
   justify-content: center;
 } */
+section {
+  /* padding: 16px;
+  margin: 16px; */
+  /* box-shadow: 0 0 8px rgba(0, 0, 0, 0.125); */
+  /* height: 64px; */
+  opacity: 0;
+  transform: translate(0, 50%);
+  visibility: hidden;
+  transition: opacity 300ms ease-out, transform 300ms ease-out;
+  will-change: opacity, visibility;
+  width: -webkit-fill-available;
+}
 
+.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  display: flex;
+}
 .image-slider {
   vertical-align: middle;
   display: inline-flex;
