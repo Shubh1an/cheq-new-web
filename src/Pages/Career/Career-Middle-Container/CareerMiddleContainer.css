@@ -184,6 +184,51 @@
     padding: 0;
   }
 }
+@media only screen and (max-height: 1283px) {
+  .team-profile h2 {
+    margin-bottom: 15px;
+  }
+  .parallax__Team_special,
+  .parallax__career_special {
+    position: absolute;
+    top: -23% !important;
+    right: 0;
+    left: 0;
+  }
+}
+@media only screen and (max-height: 1017px) {
+  .team-profile h2 {
+    margin-bottom: 15px;
+  }
+  .parallax__Team_special,
+  .parallax__career_special {
+    position: absolute;
+    top: -15% !important;
+    right: 0;
+    left: 0;
+  }
+}
+@media only screen and (max-height: 855px) {
+  .team-profile h2 {
+    margin-bottom: 15px;
+  }
+
+  .parallax__career_special {
+    position: absolute;
+    top: -10% !important;
+    right: 0;
+    left: 0;
+  }
+}
+@media only screen and (max-height: 715px) {
+  .parallax__Team_special,
+  .parallax__career_special {
+    position: absolute;
+    top: -10% !important;
+    right: 0;
+    left: 0;
+  }
+}
 @media only screen and (max-height: 707px) {
   .team-profile h2 {
     margin-bottom: 15px;
