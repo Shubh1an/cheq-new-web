@@ -1,5 +1,24 @@
 .top-content img {
 }
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20vh);
+  visibility: hidden;
+  transition: opacity 0.2s ease-out, transform 0.6s ease-out;
+  will-change: opacity, visibility;
+}
+.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  display: flex;
+}
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: none;
+  visibility: visible;
+  display: flex;
+}
 
 .top-content {
   flex-direction: column;

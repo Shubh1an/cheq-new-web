@@ -93,5 +93,6 @@
 .arrow-icon {
   width: 25px;
   height: 25px;
-  color: rgba(15, 23, 30, 0.502);
+  filter: invert(49%) sepia(100%) saturate(335%) hue-rotate(124deg)
+    brightness(87%) contrast(81%);
 }

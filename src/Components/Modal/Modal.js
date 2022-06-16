@@ -52,28 +52,66 @@ const CustomModal = ({ job, modalIsOpen, setJob, setIsOpen }) => {
         </div>
         <div className="job-details-modal">
           <p className="detail-head">Details</p>
-          <p className="job-content">{job?.content}</p>
-          <div className="job-details-point">
-            <p>
-              <span>●</span>A product designer is responsible for the design and
-              development of consumer products.
-            </p>
-            <p>
-              <span>●</span>A product designer is responsible for the design and
-              development of consumer products.
-            </p>
-            <p>
-              <span>●</span>A product designer is responsible for the design and
-              development of consumer products.
-            </p>
-            <p>
-              <span>●</span>A product designer is responsible for the design and
-              development of consumer products.
-            </p>
-            <p>
-              <span>●</span>A product designer is responsible for the design and
-              development of consumer products.
-            </p>
+          <p className="job-modal-content">{job?.content}</p>
+          <div className="job-details-container">
+            <div className="job-details-point">
+              <p>
+                <span>●</span>A product designer is responsible for the design
+                and development of consumer products.
+              </p>
+              <p>
+                <span>●</span>A product designer is responsible for the design
+                and development of consumer products.
+              </p>
+              <p>
+                <span>●</span>A product designer is responsible for the design
+                and development of consumer products.
+              </p>
+              <p>
+                <span>●</span>A product designer is responsible for the design
+                and development of consumer products.
+              </p>
+              <p>
+                <span>●</span>A product designer is responsible for the design
+                and development of consumer products.
+              </p>
+              <p>
+                <span>●</span>A product designer is responsible for the design
+                and development of consumer products.
+              </p>
+              <p>
+                <span>●</span>A product designer is responsible for the design
+                and development of consumer products.
+              </p>
+              <p>
+                <span>●</span>A product designer is responsible for the design
+                and development of consumer products.
+              </p>
+              <p>
+                <span>●</span>A product designer is responsible for the design
+                and development of consumer products.
+              </p>
+              <p>
+                <span>●</span>A product designer is responsible for the design
+                and development of consumer products.
+              </p>
+              <p>
+                <span>●</span>A product designer is responsible for the design
+                and development of consumer products.
+              </p>
+              <p>
+                <span>●</span>A product designer is responsible for the design
+                and development of consumer products.
+              </p>
+              <p>
+                <span>●</span>A product designer is responsible for the design
+                and development of consumer products.
+              </p>
+              <p>
+                <span>●</span>A product designer is responsible for the design
+                and development of consumer products.
+              </p>
+            </div>
           </div>
           <button className="apply-btn modal-btn">
             Apply
