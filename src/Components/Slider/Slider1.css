@@ -13,9 +13,10 @@ section {
   opacity: 0;
   transform: translate(0, 50%);
   visibility: hidden;
-  transition: opacity 300ms ease-out, transform 300ms ease-out;
+  transition: opacity 500ms ease-out, transform 500ms ease-out;
   will-change: opacity, visibility;
   width: -webkit-fill-available;
+  width: inherit;
 }
 
 .is-visible {

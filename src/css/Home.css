@@ -216,7 +216,7 @@
 }
 .right-mobile-pic {
   transform: rotate(42deg);
-  transition: all ease-in-out 700ms;
+  transition: all ease-in-out 750ms;
   left: 14%;
   transform-origin: 61% 190%;
 }
@@ -333,6 +333,7 @@
   padding-bottom: 3rem;
   background: #fff;
   padding-right: 5.6255rem;
+  justify-content: space-between;
 }
 
 .boxes-container {

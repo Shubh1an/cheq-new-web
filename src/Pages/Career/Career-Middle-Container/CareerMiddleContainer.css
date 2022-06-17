@@ -97,7 +97,7 @@
   max-height: 20.948rem;
   max-width: 18.382rem;
   border: 0.1px solid #e4e8ee;
-  padding-bottom: 0.8rem;
+  padding-bottom: 0.1rem;
   text-align: left;
   color: #202948;
   align-items: center;
@@ -105,6 +105,7 @@
 .core-values-icon {
   margin: 0 18.5%;
   height: 158.22px;
+  margin-top: 1.1rem;
 }
 
 .value-card p {

@@ -38,7 +38,7 @@ function Home() {
           setVisible(true);
 
           // No need to keep observing:
-          // observer.unobserve(domRef.current);
+          observer.unobserve(domRef.current);
         }
       });
 
@@ -87,7 +87,7 @@ function Home() {
 
       if (position > 0) {
         // setOpacity(1 - opa);
-        if (322 < right && right < 366) {
+        if (320 < right && right < 366) {
           // console.log("righttt", right);
           setRotateRightDegree(360);
         } else {
