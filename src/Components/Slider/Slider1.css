@@ -95,7 +95,7 @@ section {
 }
 
 .next {
-  top: 46%;
+  top: 76%;
   right: -18px;
   -moz-transform: scale(-1, -1);
   -o-transform: scale(-1, -1);
@@ -105,7 +105,7 @@ section {
 }
 
 .prev {
-  top: 46%;
+  top: 76%;
   left: -12px;
   /* border-radius: 0 70% 70% 0; */
 }

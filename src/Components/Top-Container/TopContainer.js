@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Container from "../CommonContainer/CommonContainer";
 import "./TopContainer.css";
 
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 function TopContainer({ TopContent }) {
   // const [position, setPosition] = useState(window.pageYOffset);
   // const [visible, setVisible] = useState(true);
@@ -28,13 +30,13 @@ function TopContainer({ TopContent }) {
   //   };
   // });
   // const cls = visible ? "visible" : "hidden";
+
   return (
     <Container
       inner={`commonClass ${TopContent.classname && TopContent.classname}`}
     >
       <h2>{TopContent.heading}</h2>
       <p>{TopContent.subText}</p>
-
       <div className="image">{TopContent.cardImg}</div>
     </Container>
   );

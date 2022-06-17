@@ -4,6 +4,7 @@ import MiddleMainContainer from "./Middle-main-Container/MiddleMainContainer";
 import MiddleTopContainer from "./Middle-Top-Container/MiddleTopContainer";
 import "./CareerMiddleContainer.css";
 import CustomModal from "../../../Components/Modal/Modal";
+
 function CareerMiddleContainer({ openModal }) {
   return (
     <div>

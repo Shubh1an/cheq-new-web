@@ -9,6 +9,8 @@ import TopContainer from "../../Components/Top-Container/TopContainer";
 import "../../css/Home.css";
 import Footer from "../../Components/Footer/Footer";
 import { NewsData, ProfileData } from "../../Data/DummyData";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 // import Fade from "react-reveal/Fade";
 import {
   LeftMobile,
@@ -25,34 +27,50 @@ function Home() {
   const [rotateLeftDegree, setRotateLeftDegree] = useState(42);
   const [opacity, setOpacity] = useState(1);
   const domRef = React.useRef();
-  const FadeInSection = ({ children }) => {
-    const domRef = React.useRef();
+  // const FadeInSection = ({ children }) => {
+  //   const domRef = React.useRef();
 
-    const [isVisible, setVisible] = React.useState(false);
+  //   const [isVisible, setVisible] = React.useState(false);
 
-    React.useEffect(() => {
-      const observer = new IntersectionObserver((entries) => {
-        // In your case there's only one element to observe:
-        if (entries[0].isIntersecting) {
-          // Not possible to set it back to false like this:
-          setVisible(true);
+  //   React.useEffect(() => {
+  //     const observer = new IntersectionObserver((entries) => {
+  //       // In your case there's only one element to observe:
+  //       if (entries[0].isIntersecting) {
+  //         // Not possible to set it back to false like this:
+  //         setVisible(true);
 
-          // No need to keep observing:
-          observer.unobserve(domRef.current);
-        }
-      });
+  //         // No need to keep observing:
+  //         observer.unobserve(domRef.current);
+  //       }
+  //     });
 
-      observer.observe(domRef.current);
+  //     observer.observe(domRef.current);
 
-      // return () => observer.unobserve(domRef.current);
-    }, []);
+  //     // return () => observer.unobserve(domRef.current);
+  //   }, []);
 
-    return (
-      <section ref={domRef} className={isVisible ? " is-visible" : ""}>
-        {children}
-      </section>
-    );
-  };
+  //   return (
+  //     <section ref={domRef} className={isVisible ? " is-visible" : ""}>
+  //       {children}
+  //     </section>
+  //   );
+  // };
+  const [titleRef, titleInView] = useInView({
+    triggerOnce: false,
+    rootMargin: "-100px 0px",
+  });
+  const [BlessedRef, BlessedInView] = useInView({
+    triggerOnce: false,
+    rootMargin: "-300px 0px 300px 0px",
+  });
+  const [InNewsRef, InNewsInView] = useInView({
+    triggerOnce: false,
+    rootMargin: "-100px 0px",
+  });
+  const [JoinRef, JoinInView] = useInView({
+    triggerOnce: false,
+    rootMargin: "-100px 0px",
+  });
   const TopContent = {
     heading: "Track and pay bills of all your Debt",
     subText:
@@ -121,13 +139,6 @@ function Home() {
     dir();
   };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", handleScroll);
-  //   console.log(window.scrollY);
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
-  //   };
-  // }, []);
   const navigate = useNavigate();
   const handleNavigate = (page) => {
     navigate(page);
@@ -187,28 +198,47 @@ function Home() {
                 </p>
               </div>
               <div className="people-bottom-container">
-                <FadeInSection>
-                  <div className="flex-left left-style">
-                    <div className="side-container">
-                      <h3 className="head-title">Our People</h3>
-                      <p>
-                        We’re excited to announce that CheQ has raised in seed
-                        funding from ABC
-                      </p>
+                <>
+                  <motion.div
+                    ref={titleRef}
+                    animate={{
+                      // opacity: titleInView ? 1 : 0,
+                      // scale: titleInView ? 1 : 0,
+                      x: titleInView ? 0 : -100,
+                    }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <div className="flex-left left-style">
+                      <div className="side-container">
+                        <h3 className="head-title">Our People</h3>
+                        <p>
+                          We’re excited to announce that CheQ has raised in seed
+                          funding from ABC
+                        </p>
+                      </div>
+                      <Button
+                        handleFunction={() => handleNavigate("team")}
+                        bttnClass="people-btn"
+                      >
+                        See All
+                      </Button>
                     </div>
-                    <Button
-                      handleFunction={() => handleNavigate("team")}
-                      bttnClass="people-btn"
-                    >
-                      See All
-                    </Button>
-                  </div>
-                </FadeInSection>
-                <FadeInSection>
+                  </motion.div>
+                </>{" "}
+                <motion.div
+                  ref={titleRef}
+                  animate={{
+                    // opacity: titleInView ? 1 : 0,
+                    // scale: titleInView ? 1 : 0,
+                    x: titleInView ? 0 : 100,
+                  }}
+                  transition={{ duration: 0.5 }}
+                  style={{ width: "inherit", marginLeft: "10%" }}
+                >
                   <div className="flex-right right-style">
                     <Slider1 />
                   </div>
-                </FadeInSection>
+                </motion.div>{" "}
               </div>
 
               <div className="background-blur"></div>
@@ -216,71 +246,110 @@ function Home() {
 
             {/* </Fade> */}
             <Container inner="home-middle-container">
-              <FadeInSection>
-                <div className="flex-left blessed-left-flex">
-                  <h3 className="blessed-title head-title">
-                    Blessed & Backed by
-                  </h3>
-                  <p className="blessed-text-content">
-                    <span className="party-icon">
-                      <img src={SVG.PARTY_ICON} />
-                    </span>
-                    <span>
-                      We’re excited to announce that CheQ has raised{" "}
-                      <span className="bold">$34</span> in seed funding from ABC
-                    </span>
-                  </p>
-                </div>
-              </FadeInSection>
-              <FadeInSection>
+              <>
+                <motion.div
+                  ref={BlessedRef}
+                  animate={{
+                    opacity: BlessedInView ? 1 : 0,
+                    // scale: titleInView ? 1 : 0,
+                    x: BlessedInView ? 0 : -100,
+                  }}
+                  transition={{ duration: 0.5 }}
+                >
+                  <div className="flex-left blessed-left-flex">
+                    <h3 className="blessed-title head-title">
+                      Blessed & Backed by
+                    </h3>
+                    <p className="blessed-text-content">
+                      <span className="party-icon">
+                        <img src={SVG.PARTY_ICON} />
+                      </span>
+                      <span>
+                        We’re excited to announce that CheQ has raised{" "}
+                        <span className="bold">$34</span> in seed funding from
+                        ABC
+                      </span>
+                    </p>
+                  </div>
+                </motion.div>
+              </>
+              <>
                 <div className="flex-right boxes-container">
                   <div className="square-box"></div>
                   <div className="square-box"></div>
                   <div className="square-box"></div>
                   <div className="square-box"></div>
                 </div>
-              </FadeInSection>
+              </>
             </Container>
             <Container inner="home-middle-container-1">
-              <FadeInSection>
+              <motion.div
+                ref={BlessedRef}
+                animate={{
+                  // opacity: titleInView ? 1 : 0,
+                  // scale: titleInView ? 1 : 0,
+                  y: BlessedInView ? 0 : 100,
+                }}
+                transition={{ duration: 0.5 }}
+              >
                 <h3 className="news-title">In News</h3>
-              </FadeInSection>
-              <FadeInSection>
+
                 <Slider sliderInner="news-icon-container">
                   {NewsData.map((newsIcon, index) => (
                     <img key={index} src={newsIcon.img} className="news-icon" />
                   ))}
                 </Slider>
-              </FadeInSection>
+              </motion.div>
             </Container>
             <div className="top-main-content">
-              <FadeInSection>
-                <div className="left-content">
-                  <h2>Join us on this Journey</h2>
-                  <p>
-                    We’re excited to announce that CheQ has raised in seed
-                    funding from ABC
-                  </p>
+              <>
+                <motion.div
+                  ref={JoinRef}
+                  animate={{
+                    // opacity: titleInView ? 1 : 0,
+                    // scale: titleInView ? 1 : 0,
+                    x: JoinInView ? 0 : -100,
+                  }}
+                  transition={{ duration: 0.7 }}
+                >
+                  <div className="left-content">
+                    <h2>Join us on this Journey</h2>
+                    <p>
+                      We’re excited to announce that CheQ has raised in seed
+                      funding from ABC
+                    </p>
+                    <Button
+                      handleFunction={() => handleNavigate("career")}
+                      bttnClass="people-btn-top"
+                    >
+                      Explore Opportunity
+                    </Button>
+                  </div>
+                </motion.div>
+              </>
+              <>
+                <motion.div
+                  ref={JoinRef}
+                  animate={{
+                    // opacity: titleInView ? 1 : 0,
+                    // scale: titleInView ? 1 : 0,
+                    x: JoinInView ? 0 : 100,
+                  }}
+                  transition={{ duration: 0.7 }}
+                >
+                  <div className="right-content">
+                    <MultiTaskingImage MultiTaskClass="multi-task-image" />
+                  </div>
                   <Button
                     handleFunction={() => handleNavigate("career")}
-                    bttnClass="people-btn-top"
+                    bttnClass="people-btn-below"
                   >
                     Explore Opportunity
                   </Button>
-                </div>
-              </FadeInSection>
-              <FadeInSection>
-                <div className="right-content">
-                  <MultiTaskingImage MultiTaskClass="multi-task-image" />
-                </div>
-                <Button
-                  handleFunction={() => handleNavigate("career")}
-                  bttnClass="people-btn-below"
-                >
-                  Explore Opportunity
-                </Button>
-              </FadeInSection>
+                </motion.div>
+              </>
             </div>
+
             <Footer />
           </div>
         </div>

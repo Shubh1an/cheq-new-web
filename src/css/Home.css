@@ -147,6 +147,7 @@
   /* border: 5px solid; */
   box-sizing: border-box;
   padding-bottom: 8rem;
+  gap: 218px;
 }
 .top-home-container {
   display: none;
@@ -249,7 +250,7 @@
 .right-style {
   position: relative;
   flex: 1 1;
-
+  width: 91%;
   flex-shrink: 1;
   display: flex;
   text-align: right;

@@ -113,6 +113,9 @@
 
   color: #6a7381;
 }
+.footer-left > div {
+  text-align: left !important;
+}
 @media only screen and (max-width: 786px) {
   .footer-container {
     padding: 1rem;
